@@ -59,7 +59,7 @@ function WatchPage() {
       <Button size="icon" variant="ghost" title="Reset view" aria-label="Reset view" onClick={() => { setResetKey(v => v + 1); setZoom(1); }}><RotateCcw /></Button>
       <span className="watch-toolbar-divider" aria-hidden="true" />
       <Button type="button" variant="ghost" className="watch-try-on-button" onClick={() => setTryOnOpen(true)}><ScanLine />Try on</Button>
-      <Button type="button" variant="ghost" className="watch-try-on-button" onClick={() => { cart.add(watch.id); toast.success(`${watch.name} added to your bag`); }}><ShoppingBag />Add to bag</Button>
+      <Button type="button" variant="ghost" className="watch-try-on-button" onClick={() => { cart.add(watch.id); toast.success(`${watch.name} added to your cart`); }}><ShoppingBag />Add to cart</Button>
     </div>
     <nav className="watch-finish-nav" aria-label="Watch finishes">{watches.map(w => <Button key={w.id} asChild variant="ghost" className={w.id === watch.id ? 'selected' : ''}><Link to="/watches/$watchId" params={{ watchId: w.id }}><span className="watch-swatch" data-tone={w.id} />{w.finish}</Link></Button>)}</nav>
     <WatchGallery key={watch.id} watch={watch} />

@@ -45,7 +45,7 @@ export function WatchProductCard({ tone }: { tone: WatchTone }) {
         </div>
         <div className="az-rating"><Stars value={m.rating} /><span>{m.rating}</span><span className="az-muted">({usd(m.reviews)})</span></div>
         <p className="az-small az-muted">Delivered by {tomorrow}{m.stock ? ` · only ${m.stock} left` : ''}</p>
-        <button type="button" className="az-add" onClick={() => { cart.add(w.id); toast.success(`${w.name} added to cart`); }}>Add to bag</button>
+        <button type="button" className="az-add" onClick={() => { cart.add(w.id); toast.success(`${w.name} added to cart`); }}>Add to cart</button>
         <div className="az-links">
           <Link to="/watches/$watchId" params={{ watchId: w.id }} search={{ tryon: true }} className="az-tryon"><ScanLine size={14} /> Try on</Link>
           <Link to="/shop/$watchId" params={{ watchId: w.id }} className="az-more">Details</Link>
