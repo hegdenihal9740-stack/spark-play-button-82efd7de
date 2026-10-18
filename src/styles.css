@@ -1086,3 +1086,42 @@ body:has(.watch-page) { background: var(--midnight-sky); }
 .acc-details dd { text-align: right; }
 .fk-wish { position: absolute; top: 10px; right: 10px; z-index: 3; width: 38px; height: 38px; border-radius: 999px; display: grid; place-items: center; background: var(--background); border: 1px solid var(--border); cursor: pointer; }
 .fk-wish.is-on { color: var(--destructive); }
+
+/* ===== Flipkart-style product cards (refined) ===== */
+:root { --fk2-blue: oklch(0.55 0.19 260); --fk2-green: oklch(0.58 0.15 150); --fk2-amber: oklch(0.86 0.17 90); --fk2-amber-ink: oklch(0.25 0.03 70); --fk2-orange: oklch(0.7 0.19 50); }
+.az-section h2 { font-family: "Karla", sans-serif; font-size: clamp(22px, 3vw, 32px); font-weight: 700; letter-spacing: -.01em; display: flex; align-items: center; gap: .75rem; }
+.az-section h2::after { content: ""; flex: 1; height: 1px; background: var(--fk-line); }
+.az-grid { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
+.az-card { border-radius: 14px; transition: box-shadow .25s, transform .25s; }
+.az-card:hover { box-shadow: 0 14px 34px -14px color-mix(in oklab, var(--fk-ink) 35%, transparent); transform: translateY(-3px); }
+.az-badge { top: .75rem; left: .75rem; color: var(--fk2-amber-ink); background: var(--fk2-amber); border: 0; border-radius: 4px; font-size: .62rem; font-weight: 700; letter-spacing: .06em; padding: .3rem .5rem; }
+.az-img { border-radius: 14px 14px 0 0; }
+.az-body { align-items: stretch; text-align: left; gap: .4rem; padding: 1rem 1rem 1.1rem; }
+.az-eyebrow { color: var(--fk-muted); font-size: .68rem; letter-spacing: .08em; font-weight: 600; line-height: 1.3; }
+.az-title { font-family: "Karla", sans-serif; font-size: 1.05rem; font-weight: 700; line-height: 1.3; }
+.az-title:hover { color: var(--fk2-blue); }
+.az-specs { font-size: .75rem; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.az-rating { order: -1; margin-top: -.1rem; gap: .4rem; font-size: .75rem; }
+.az-rating > span:nth-child(2) { order: -1; display: inline-flex; align-items: center; gap: 2px; background: var(--fk2-green); color: var(--fk-bg); font-weight: 700; padding: .1rem .45rem; border-radius: 4px; }
+.az-rating > span:nth-child(2)::after { content: "★"; font-size: .65rem; }
+.az-stars { display: none; }
+.az-price-row { justify-content: flex-start; flex-wrap: wrap; border: 0; padding: 0; margin: .15rem 0 0; gap: .5rem; }
+.az-price { font-family: "Karla", sans-serif; font-size: 1.35rem; font-weight: 800; line-height: 1; }
+.az-price-row s { font-size: .82rem; }
+.az-off { color: var(--fk2-green); font-weight: 700; font-size: .82rem; }
+.az-small { line-height: 1.4; }
+.az-add { margin-top: .4rem; background: var(--fk2-orange); color: var(--fk-bg); border-radius: 8px; letter-spacing: .08em; font-weight: 700; padding: .75rem; }
+.az-add:hover { background: var(--fk2-blue); }
+.az-links { gap: .5rem; }
+.az-tryon, .az-more { border-radius: 8px; letter-spacing: .06em; font-weight: 600; display: flex; justify-content: center; align-items: center; text-align: center; }
+.az-tryon { border-color: var(--fk2-blue); color: var(--fk2-blue); }
+.az-tryon:hover, .az-more:hover { background: var(--fk2-blue); color: var(--fk-bg); border-color: var(--fk2-blue); }
+@media (max-width: 640px) {
+  .az-grid { gap: 10px; }
+  .az-body { padding: .75rem .7rem .85rem; gap: .3rem; }
+  .az-title { font-size: .92rem; }
+  .az-price { font-size: 1.1rem; }
+  .az-specs { font-size: .68rem; }
+  .az-links { grid-template-columns: 1fr; }
+  .az-add, .az-tryon, .az-more { font-size: .66rem; padding: .6rem; }
+}
