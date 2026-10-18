@@ -1117,11 +1117,11 @@ body:has(.watch-page) { background: var(--midnight-sky); }
 .az-tryon { border-color: var(--fk2-blue); color: var(--fk2-blue); }
 .az-tryon:hover, .az-more:hover { background: var(--fk2-blue); color: var(--fk-bg); border-color: var(--fk2-blue); }
 @media (max-width: 640px) {
-  .az-grid { gap: 10px; }
+  .az-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
   .az-body { padding: .75rem .7rem .85rem; gap: .3rem; }
   .az-title { font-size: .92rem; }
   .az-price { font-size: 1.1rem; }
   .az-specs { font-size: .68rem; }
-  .az-links { grid-template-columns: 1fr; }
+  .az-links { grid-template-columns: 1fr 1fr; gap: .35rem; }
   .az-add, .az-tryon, .az-more { font-size: .66rem; padding: .6rem; }
 }
