@@ -37,7 +37,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { cart, prices } from '@/lib/cart';
 import { watches, type WatchTone } from '@/lib/watches';
 
-const usd = (n: number) => n.toLocaleString('en-US');
+const usd = (n: number) => n.toLocaleString('en-IN');
 
 export function FlipkartDetails({
   tone, open, onOpenChange, asPage = false, onBuy,
@@ -104,8 +104,8 @@ export function FlipkartDetails({
             </div>
             <p className="fk-special">Special Price</p>
             <div className="fk-price-row">
-              <span className="fk-price">${usd(price)}</span>
-              <s className="fk-muted">${usd(m.list)}</s>
+              <span className="fk-price">₹{usd(price)}</span>
+              <s className="fk-muted">₹{usd(m.list)}</s>
               <span className="fk-off">{off}% off</span>
             </div>
             <div className="fk-delivery">
@@ -137,6 +137,11 @@ export function FlipkartDetails({
               <button type="button" className="fk-buy" onClick={() => { if (onBuy) { onBuy(w.id); return; } cart.add(w.id); toast.success('Proceeding to checkout'); onOpenChange(false); }}><Zap size={16} /> Buy now</button>
               <button type="button" className="fk-cart" onClick={() => { cart.add(w.id); toast.success(`${w.name} (${dial}) added to cart`); }}><ShoppingCart size={16} /> Add to cart</button>
             </div>
+            {asPage && <div className="fk-sticky">
+              <div className="fk-sticky-price"><b>₹{usd(price)}</b><small>Free delivery</small></div>
+              <button type="button" className="fk-cart" onClick={() => { cart.add(w.id); toast.success(`${w.name} added to cart`); }}><ShoppingCart size={16} /> Cart</button>
+              <button type="button" className="fk-buy" onClick={() => { if (onBuy) onBuy(w.id); }}><Zap size={16} /> Buy now</button>
+            </div>}
             <div className="fk-trust">
               <div className="fk-trust-card t-green"><Truck size={22} /><b>Free Delivery</b><span>By {deliveryDate}</span></div>
               <div className="fk-trust-card t-blue"><RotateCcw size={22} /><b>7 Days</b><span>Easy replacement</span></div>
@@ -170,7 +175,7 @@ export function FlipkartDetails({
                     <img src={r.image} alt={r.name} />
                     <span className="fk-rec-name">{r.name}</span>
                     <span className="fk-rec-sub">{r.finish}</span>
-                    <span className="fk-rec-price">${usd(prices[r.id])}</span>
+                    <span className="fk-rec-price">₹{usd(prices[r.id])}</span>
                   </button>
                 ))}
               </div>

@@ -9,7 +9,7 @@ import { watches, type WatchTone } from '@/lib/watches';
 type Address = { name: string; mobile: string; pincode: string; locality: string; address: string; city: string; state: string; landmark: string; type: 'Home' | 'Work' };
 const EMPTY: Address = { name: '', mobile: '', pincode: '', locality: '', address: '', city: '', state: '', landmark: '', type: 'Home' };
 const KEY = 'private-flight-address';
-const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
+const usd = (n: number) => `₹${n.toLocaleString('en-IN')}`;
 
 export const Route = createFileRoute('/checkout')({
   ssr: false,

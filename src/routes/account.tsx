@@ -8,7 +8,7 @@ import { useWishlist, wishlist } from '@/lib/wishlist';
 import { watches, type WatchTone } from '@/lib/watches';
 
 type Order = { id: string; item: WatchTone; qty: number; price: number; payment: string; placedAt: string; address: { name: string; mobile: string; address: string; city: string; state: string; pincode: string } };
-const usd = (n: number) => `$${n.toLocaleString('en-US')}`;
+const usd = (n: number) => `₹${n.toLocaleString('en-IN')}`;
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
 
 export const Route = createFileRoute('/account')({

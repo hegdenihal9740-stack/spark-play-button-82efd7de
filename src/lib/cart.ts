@@ -32,4 +32,4 @@ export function useCart() {
   return { items: list, open, count: list.reduce((s, i) => s + i.qty, 0), total: list.reduce((s, i) => s + i.qty * prices[i.id], 0) };
 }
 
-export const formatPrice = (n: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+export const formatPrice = (n: number) => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(n);
