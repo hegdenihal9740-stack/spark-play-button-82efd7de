@@ -5,7 +5,7 @@ import { cart, prices } from '@/lib/cart';
 import { watches, type WatchTone } from '@/lib/watches';
 import { cardMeta as meta } from '@/lib/watch-meta';
 
-const usd = (n: number) => n.toLocaleString('en-US');
+const usd = (n: number) => n.toLocaleString('en-IN');
 
 function Stars({ value }: { value: number }) {
   return (
@@ -33,14 +33,14 @@ export function WatchProductCard({ tone }: { tone: WatchTone }) {
   return (
     <article className="az-card">
       {m.badge && <span className="az-badge">{m.badge}</span>}
-      <Link to="/watches/$watchId" params={{ watchId: w.id }} className="az-img"><img src={w.image} alt={w.name} loading="lazy" /></Link>
+      <Link to="/shop/$watchId" params={{ watchId: w.id }} className="az-img"><img src={w.image} alt={w.name} loading="lazy" /></Link>
       <div className="az-body">
         <p className="az-eyebrow">Private Flight · {w.finish}</p>
-        <Link to="/watches/$watchId" params={{ watchId: w.id }} className="az-title">{w.name}</Link>
+        <Link to="/shop/$watchId" params={{ watchId: w.id }} className="az-title">{w.name}</Link>
         <p className="az-specs">{m.specs.join(' · ')}</p>
         <div className="az-price-row">
-          <span className="az-price">${usd(price)}</span>
-          <s className="az-muted">${usd(m.list)}</s>
+          <span className="az-price">₹{usd(price)}</span>
+          <s className="az-muted">₹{usd(m.list)}</s>
           <span className="az-off">−{off}%</span>
         </div>
         <div className="az-rating"><Stars value={m.rating} /><span>{m.rating}</span><span className="az-muted">({usd(m.reviews)})</span></div>

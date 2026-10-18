@@ -37,7 +37,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from '@/compone
 import { cart, prices } from '@/lib/cart';
 import { watches, type WatchTone } from '@/lib/watches';
 
-const usd = (n: number) => n.toLocaleString('en-US');
+const usd = (n: number) => n.toLocaleString('en-IN');
 
 export function FlipkartDetails({
   tone, open, onOpenChange, asPage = false, onBuy,
@@ -104,8 +104,8 @@ export function FlipkartDetails({
             </div>
             <p className="fk-special">Special Price</p>
             <div className="fk-price-row">
-              <span className="fk-price">${usd(price)}</span>
-              <s className="fk-muted">${usd(m.list)}</s>
+              <span className="fk-price">₹{usd(price)}</span>
+              <s className="fk-muted">₹{usd(m.list)}</s>
               <span className="fk-off">{off}% off</span>
             </div>
             <div className="fk-delivery">
@@ -170,7 +170,7 @@ export function FlipkartDetails({
                     <img src={r.image} alt={r.name} />
                     <span className="fk-rec-name">{r.name}</span>
                     <span className="fk-rec-sub">{r.finish}</span>
-                    <span className="fk-rec-price">${usd(prices[r.id])}</span>
+                    <span className="fk-rec-price">₹{usd(prices[r.id])}</span>
                   </button>
                 ))}
               </div>
