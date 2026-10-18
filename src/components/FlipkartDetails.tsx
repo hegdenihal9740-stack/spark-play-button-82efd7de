@@ -135,7 +135,7 @@ export function FlipkartDetails({
             </div>
             <div className="fk-actions">
               <button type="button" className="fk-buy" onClick={() => { if (onBuy) { onBuy(w.id); return; } cart.add(w.id); toast.success('Proceeding to checkout'); onOpenChange(false); }}><Zap size={16} /> Buy now</button>
-              <button type="button" className="fk-cart" onClick={() => { cart.add(w.id); toast.success(`${w.name} (${dial}) added to cart`); }}><ShoppingCart size={16} /> Add to bag</button>
+              <button type="button" className="fk-cart" onClick={() => { cart.add(w.id); toast.success(`${w.name} (${dial}) added to cart`); }}><ShoppingCart size={16} /> Add to cart</button>
             </div>
             <div className="fk-perks">
               <span><Truck size={18} />Complimentary delivery</span>

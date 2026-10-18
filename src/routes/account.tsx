@@ -76,7 +76,7 @@ function AccountPage() {
           return <article key={id} className="acc-card acc-order"><div className="acc-order-row">
             <Link to="/shop/$watchId" params={{ watchId: id }}><img src={w.image} alt={w.name} /></Link>
             <div><p className="acc-order-name">{w.name}</p><p className="fk-price">{usd(prices[id])}</p>
-              <button type="button" className="fk-cart acc-move" onClick={() => { cart.add(id); wishlist.remove(id); }}>Move to bag</button></div>
+              <button type="button" className="fk-cart acc-move" onClick={() => { cart.add(id); wishlist.remove(id); }}>Move to cart</button></div>
             <button type="button" aria-label="Remove" onClick={() => wishlist.remove(id)}><Trash2 size={18} /></button>
           </div></article>;
         })}</>}

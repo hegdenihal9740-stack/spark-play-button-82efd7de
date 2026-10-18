@@ -6,19 +6,15 @@ import { watches } from '@/lib/watches';
 import { Button } from '@/components/ui/button';
 
 export function CartDrawer() {
-  const { items, open, count } = useCart();
+  const { items, open } = useCart();
   return <>
-    <button type="button" className="cart-fab" onClick={() => cart.setOpen(true)} aria-label={`Open cart, ${count} items`}>
-      <ShoppingBag size={18} />
-      {count > 0 && <span className="cart-badge">{count}</span>}
-    </button>
     <Sheet open={open} onOpenChange={cart.setOpen}>
       <SheetContent className="cart-sheet">
         <SheetHeader>
-          <SheetTitle className="cart-title">Your bag</SheetTitle>
+          <SheetTitle className="cart-title">Your cart</SheetTitle>
           <SheetDescription>Complimentary insured courier delivery.</SheetDescription>
         </SheetHeader>
-        {items.length === 0 ? <p className="cart-empty">Your bag is empty. Add a timepiece from the collection.</p> :
+        {items.length === 0 ? <p className="cart-empty">Your cart is empty. Add a timepiece from the collection.</p> :
           <ul className="cart-list">{items.map(item => {
             const w = watches.find(x => x.id === item.id);
             if (!w) return null;
@@ -37,7 +33,7 @@ export function CartDrawer() {
           })}</ul>}
         {items.length > 0 && <div className="cart-footer">
           
-          <Button type="button" className="cart-checkout" onClick={() => toast.info('Checkout is not available yet. No order has been placed and your bag has been kept.')}>Checkout</Button>
+          <Button type="button" className="cart-checkout" onClick={() => toast.info('Checkout is not available yet. No order has been placed and your cart has been kept.')}>Checkout</Button>
         </div>}
       </SheetContent>
     </Sheet>
